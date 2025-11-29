@@ -32,7 +32,7 @@ To clone the repository and download the data:
 
 ```bash
 git clone https://github.com/anushka-don/scrna_analysis.git
-python3 data_download.py
+bash data_download.py
 ```
 
 ---
