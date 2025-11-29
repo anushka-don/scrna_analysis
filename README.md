@@ -13,24 +13,12 @@ The analysis investigates how immune and stromal cells contribute to the metasta
 
 ---
 
-## Repository Structure
-
-| File / Folder  | Description                                                                      |
-| -------------- | -------------------------------------------------------------------------------- |
-| `analysis.py`  | Main Python script containing preprocessing, clustering, and annotation pipeline |
-| `samples/`     | Folder containing raw 10X Genomics count matrices (e.g., GSM5910784_Case1-YF)    |
-| `cellphonedb/` | Output directory for cell–cell interaction analysis                              |
-| `v5.0.0/`      | CellPhoneDB database files                                                       |
-| `README.md`    | Project documentation                                                            |
-
----
-
 ## Background
 
 Pancreatic ductal adenocarcinoma (PDAC) is an aggressive cancer with frequent liver metastasis.
 Single-cell transcriptomics provides a way to dissect the tumor microenvironment (TME) at cellular resolution.
 
-Using the public GEO dataset [GSE197177](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE197177), this project analyzes:
+Using the public GEO dataset [GSE197177](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE197177), this samples belong to either of the three cell types:
 
 * Normal pancreatic tissue (NT)
 * Primary pancreatic tumors (PT)
@@ -43,16 +31,8 @@ Using the public GEO dataset [GSE197177](https://www.ncbi.nlm.nih.gov/geo/query/
 To create the analysis environment:
 
 ```bash
-conda create -n sc_env python=3.9
-conda activate sc_env
-conda install -c bioconda -c conda-forge scanpy anndata pandas numpy seaborn matplotlib scrublet harmonypy celltypist scvelo sccoda arviz
-pip install cellphonedb
-```
-
-If CellPhoneDB installation fails through conda, install it with pip:
-
-```bash
-pip install cellphonedb
+conda env create -f scrna_env.yml
+conda activate myenv
 ```
 
 ---
@@ -126,18 +106,6 @@ Combined literature-based markers and Zhang et al., 2023 reference.
 | NT samples | Limited immune signaling           |
 | PT samples | Active tumor–immune interactions   |
 | HM samples | Dominant immunosuppressive signals |
-
----
-
-## Results Summary
-
-| Analysis    | Insight                                                                  |
-| ----------- | ------------------------------------------------------------------------ |
-| QC          | Effective filtering and doublet removal improved data quality            |
-| Clustering  | Identified 29 distinct transcriptional clusters                          |
-| Annotation  | Major immune and stromal populations consistent with the published study |
-| Pseudotime  | Reconstructed ductal cell differentiation trajectory                     |
-| CellPhoneDB | Highlighted immunosuppressive interactions in metastatic environments    |
 
 ---
 
