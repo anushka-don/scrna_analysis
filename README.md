@@ -26,6 +26,17 @@ Using the public GEO dataset [GSE197177](https://www.ncbi.nlm.nih.gov/geo/query/
 
 ---
 
+## Downloading the code and dataset
+
+To clone the repository and download the data:
+
+```bash
+git clone https://github.com/anushka-don/scrna_analysis.git
+python3 data_download.py
+```
+
+---
+
 ## Environment Setup
 
 To create the analysis environment:
